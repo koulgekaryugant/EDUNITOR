@@ -1,0 +1,24 @@
+{% extends 'EmpDashboard.html' %}
+{% block body %}
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Screenshot Monitoring Logs</h3>
+
+    {% if msg %}
+        {% for result in msg %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <img src="{{ result.ssm_img|safe }}" alt="Screenshot"
+                             style="max-width:100%; border:1px solid #ccc; padding:5px;" />
+                    </div>
+                    <p><strong>Log Timestamp:</strong> {{ result.ssm_log_ts }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="text-center">
+            <h4>No Screenshot Logs Found!</h4>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

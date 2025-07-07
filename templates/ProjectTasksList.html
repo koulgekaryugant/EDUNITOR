@@ -1,0 +1,39 @@
+{% extends 'OrgDashboard.html' %}
+{% block body %}
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Tasks in Project: {{ project.p_name }}</h3>
+
+    <div class="row justify-content-center">
+        {% for task in tasks %}
+        <div class="col-lg-6 mb-3">
+            <div class="card shadow p-3">
+                <h4>{{ task.t_name|upper }}</h4>
+                <p>{{ task.t_desc }}</p>
+
+                <p><b>Board:</b> {{ task.b_id.b_name }}</p>
+                <p><b>Priority:</b>
+                    {% if task.t_priority == "High Priority" %}
+                    <span class="badge bg-danger">High</span>
+                    {% elif task.t_priority == "Medium Priority" %}
+                    <span class="badge bg-warning">Medium</span>
+                    {% elif task.t_priority == "Low Priority" %}
+                    <span class="badge bg-info">Low</span>
+                    {% endif %}
+                </p>
+
+                <p><b>Assigned Date:</b> {{ task.t_assign_date }}</p>
+                <p><b>Deadline Date:</b> {{ task.t_deadline_date }}</p>
+
+                <a href="/update-task/{{ task.id }}" class="btn btn-warning btn-sm">Update</a>
+                <a href="/delete-task/{{ task.id }}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{% url 'projectwise_task' task.id project.id %}" class="btn btn-primary">Go to Project Dashboard</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>No tasks available for this project.</p>
+        {% endfor %}
+    </div>
+
+   
+</div>
+{% endblock %}

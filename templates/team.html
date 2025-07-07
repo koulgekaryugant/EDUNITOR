@@ -1,0 +1,195 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .outer-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .inner-container {
+        max-width: 1200px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .heading-text {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .sub-heading-text {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    .team-members-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .card-container {
+        flex: 1 1 calc(33.333% - 20px);
+        max-width: 300px;
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card-container:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .position {
+        font-size: 1rem;
+        color: #777;
+    }
+
+    @media (max-width: 768px) {
+        .card-container {
+            flex: 1 1 calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 500px) {
+        .card-container {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+
+<main>
+    <div class="responsive-container-block outer-container">
+        <div class="responsive-container-block inner-container">
+          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-4 wk-ipadp-4 headings-container">
+            <p class="text-blk heading-text">
+              Meet our team
+            </p>
+            <p class="text-blk sub-heading-text">
+              Together, we innovate, collaborate, and create a future where possibilities are limitless.
+            </p>
+          </div>
+          <div class="responsive-cell-block wk-desk-8 wk-ipadp-8 wk-tab-12 wk-mobile-12 team-members-container">
+
+            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+              <div class="card">
+                <img class="card-img" src="{% static 'images/v_sir.png' %}">
+                <p class="text-blk name">
+                  Prof.Vilas jarali
+                </p>
+                <p class="text-blk position">
+                  project guide
+                </p>
+              </div>
+            </div>
+
+            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+              <div class="card">
+                <img class="card-img" src="{% static 'images/pramod.jpg' %}" alt="Developer Image">
+
+                <p class="text-blk name">
+                  Pramod Topannavar
+                </p>
+                <p class="text-blk position">
+                  Full Stack Developer
+                </p>
+              </div>
+            </div>
+            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+              <div class="card">
+                <img class="card-img" src="{% static 'images/siddappa.jpg' %}">
+                <p class="text-blk name">
+                  Siddappa Totager
+                </p>
+                <p class="text-blk position">
+                  Full Stack Developer
+                </p>
+              </div>
+            </div>
+            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+              <div class="card">
+                <img class="card-img" src="{% static 'images/yugant.jpg' %}">
+                <p class="text-blk name">
+                  yugant kolekar
+                </p>
+                <p class="text-blk position">
+                  Full Stack Developer
+                </p>
+              </div>
+            </div>
+            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+              <div class="card">
+                <img class="card-img" src="{% static 'images/pratha.jpg' %}">
+                <p class="text-blk name">
+                  prathamesh kumbar
+                </p>
+                <p class="text-blk position">
+                  Full Stack Developer
+                </p>
+              </div>
+            </div>
+            
+            {% comment %} <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+                <div class="card">
+                  <img class="card-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft13.svg">
+                  <p class="text-blk name">
+                    Prof.Gautam
+                  </p>
+                  <p class="text-blk position">
+                    project Head
+                  </p>
+                </div>
+              </div>
+            <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
+              <div class="card">
+                <img class="card-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft14.svg">
+                <p class="text-blk name">
+                   Dhanashree kulkari
+                </p>
+                <p class="text-blk position">
+                   Cse Hod
+                </p>
+              </div>
+            </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+</main>
+{% endblock %}
